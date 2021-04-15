@@ -44,10 +44,6 @@ Set new aws configuration
     $ aws configure --profile default
     # $ aws configure list # to see current config
 
-output:
-
-.. code-block:: bash
-
     AWS Access Key ID: ******
     AWS Secret Access Key: *****
     Default region name: us-east-2
