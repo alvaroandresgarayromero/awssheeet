@@ -2,54 +2,60 @@
     :description lang=en: AWS Identity and Access Management (IAM)
     :keywords: AWS, AWSCLI
 
-==============================
-IAM Configuration and Basics
-==============================
+=============
+IAM
+=============
 
 .. contents:: Table of Contents
     :backlinks: none
 
-
-IAM Dashboard: New Client
--------------------------
-
+Introduction
+-------------
 AWS Identity and Access Management (IAM) service allows you to authorize users / applications (such as AWS CLI) to access AWS resources.
 
-Navigate into the AWS IAM Dashboard to create new user
+Create New User
+------------------
+
+- IAM Console:
+
+    Navigate into the AWS IAM Console to create new user
 
 .. code-block:: bash
 
     AWS IAM Dashboard -> Users -> Add User
     Permission: If unknown, set to AdministratorAccess policy. This will allow the new user to perform any action in your AWS account.
 
-
-output:
-
-.. code-block:: bash
-
-    # WARNING: Credentials for new user will be downloadable once
+    # Credentials for new user will be created (see below) and downloadable as CSV "ONCE"
     Username
     Password
     Access key ID
     Secret access key
     Console login link
 
-AWS CLI: Configuration
--------------------------
 
-Set new aws configuration
+
+AWS CLI Configuration
+-----------------------
+
+Use command line interface to set the AWS CLI configuration
 
 .. code-block:: bash
 
     $ aws configure --profile default
     # $ aws configure list # to see current config
 
+    # add info fetched from user
     AWS Access Key ID: ******
     AWS Secret Access Key: *****
     Default region name: us-east-2
     Default output format: json
 
-See active users
+Active users
+--------------
+
+- CLI:
+
+    Use command line interface to see the active users
 
 .. code-block:: bash
 

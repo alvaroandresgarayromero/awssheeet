@@ -18,7 +18,7 @@ Cheat Sheet
 =============
 
 - `IAM <docs/notes/aws-iam-basics.rst>`_
-
+- `S3 Bucket <docs/notes/aws-s3-bucket-basics.rst>`_
 
 
 
