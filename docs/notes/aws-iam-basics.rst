@@ -20,61 +20,61 @@ User
 
     Navigate into the AWS IAM Console to create new user
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    AWS IAM Dashboard -> Users -> Add User
-    Permission: If unknown, set to AdministratorAccess policy. An IAM policy is a JSON file that defines the level of permissions (authorization) a user (or a service) can have while accessing AWS services in your account. This will allow the new user to perform any action in your AWS account.
+        AWS IAM Dashboard -> Users -> Add User
+        Permission: If unknown, set to AdministratorAccess policy. An IAM policy is a JSON file that defines the level of permissions (authorization) a user (or a service) can have while accessing AWS services in your account. This will allow the new user to perform any action in your AWS account.
 
 
-    # Credentials for new user will be created (see below) and downloadable as CSV "ONCE"
-    Username
-    Password
-    Access key ID
-    Secret access key
-    Console login link
+        # Credentials for new user will be created (see below) and downloadable as CSV "ONCE"
+        Username
+        Password
+        Access key ID
+        Secret access key
+        Console login link
 
 
 - Get list of users
 
     CLI: Use command line interface to see the list users
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    $ aws iam list-users
+        $ aws iam list-users
 
-output:
+    output:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    {
-        "Users": [
-            {
-                "Path": "/",
-                "UserName": "new-user-1",
-                "UserId": "******************",
-                "Arn": "arn:aws:iam::<Account>:user/new-user-1",
-                "CreateDate": "*****************"
-            }
-        ]
-    }
+        {
+            "Users": [
+                {
+                    "Path": "/",
+                    "UserName": "new-user-1",
+                    "UserId": "******************",
+                    "Arn": "arn:aws:iam::<Account>:user/new-user-1",
+                    "CreateDate": "*****************"
+                }
+            ]
+        }
 
 - Get active user
 
     CLI: Use command line interface to see the list users
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    $ aws sts get-caller-identity
+        $ aws sts get-caller-identity
 
-output:
+    output:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    {
-        "UserId": "**********************",
-        "Account": "************",
-        "Arn": "arn:aws:iam::<Account>:user/new-user-1"
-    }
+        {
+            "UserId": "**********************",
+            "Account": "************",
+            "Arn": "arn:aws:iam::<Account>:user/new-user-1"
+        }
 
 
 Roles
