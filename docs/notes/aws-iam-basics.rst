@@ -34,6 +34,49 @@ User
     Console login link
 
 
+- Get list of users
+
+    CLI: Use command line interface to see the list users
+
+    .. code-block:: bash
+
+        $ aws iam list-users
+
+    output:
+
+    .. code-block:: bash
+
+        {
+            "Users": [
+                {
+                    "Path": "/",
+                    "UserName": "new-user-1",
+                    "UserId": "******************",
+                    "Arn": "arn:aws:iam::<Account>:user/new-user-1",
+                    "CreateDate": "*****************"
+                }
+            ]
+        }
+
+- Get active user
+
+    CLI: Use command line interface to see the list users
+
+    .. code-block:: bash
+
+        $ aws sts get-caller-identity
+
+    output:
+
+    .. code-block:: bash
+
+        {
+            "UserId": "**********************",
+            "Account": "************",
+            "Arn": "arn:aws:iam::<Account>:user/new-user-1"
+        }
+
+
 Roles
 ------
 IAM roles are a secure way to grant permissions to entities that you trust.
@@ -111,46 +154,3 @@ Use command line interface to set the AWS CLI configuration
     Default region name: us-east-2
     Default output format: json
 
-Get list of users
-------------------
-
-- CLI:
-
-    Use command line interface to see the list users
-
-.. code-block:: bash
-
-    $ aws iam list-users
-
-output:
-
-.. code-block:: bash
-
-    {
-        "Users": [
-            {
-                "Path": "/",
-                "UserName": "new-user-1",
-                "UserId": "******************",
-                "Arn": "arn:aws:iam::<Account>:user/new-user-1",
-                "CreateDate": "*****************"
-            }
-        ]
-    }
-
-Get active user
-------------------
-
-.. code-block:: bash
-
-    $ aws sts get-caller-identity
-
-output:
-
-.. code-block:: bash
-
-    {
-        "UserId": "**********************",
-        "Account": "************",
-        "Arn": "arn:aws:iam::<Account>:user/new-user-1"
-    }
