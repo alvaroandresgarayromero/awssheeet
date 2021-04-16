@@ -88,53 +88,53 @@ Trusted Policy: The second is the account that contains the users that need to a
 
     What resources can be accessed and what actions can be taken
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    # example: access the description of the EKS cluster
-    #          and fetch a list of necessary parameters
-    #          from the AWS Systems Manager service
-    {
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-          "Effect": "Allow",
-          "Action": [
-              "eks:Describe*",
-              "ssm:GetParameters"
-          ],
-          "Resource": "*"
-      }
-    ]
-    }
+        # example: access the description of the EKS cluster
+        #          and fetch a list of necessary parameters
+        #          from the AWS Systems Manager service
+        {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+              "Effect": "Allow",
+              "Action": [
+                  "eks:Describe*",
+                  "ssm:GetParameters"
+              ],
+              "Resource": "*"
+          }
+        ]
+        }
 
 
 - Trusted Policy:
 
     What entities can assume the role
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    # trust.json
+        # trust.json
 
-    {
-    "Version": "2012-10-17",
-    "Statement": [
-     {
-         "Effect": "Allow",
-         "Principal": {
-             "AWS": "arn:aws:iam::<ACCOUNT_ID>:root"
-         },
-         "Action": "sts:AssumeRole"
-     }
-    ]
-    }
+        {
+        "Version": "2012-10-17",
+        "Statement": [
+         {
+             "Effect": "Allow",
+             "Principal": {
+                 "AWS": "arn:aws:iam::<ACCOUNT_ID>:root"
+             },
+             "Action": "sts:AssumeRole"
+         }
+        ]
+        }
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    # create the role
-    $ aws iam create-role --role-name UdacityFlaskDeployCBKubectlRole \
-                          --assume-role-policy-document file://trust.json \
-                          --output text --query 'Role.Arn
+        # create the role
+        $ aws iam create-role --role-name UdacityFlaskDeployCBKubectlRole \
+                              --assume-role-policy-document file://trust.json \
+                              --output text --query 'Role.Arn
 
 
 

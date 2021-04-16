@@ -21,18 +21,18 @@ Create New Bucket
 
     Navigate into the AWS S3 Console to create a new bucket
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    Amazon S3 -> Buckets -> Create Buckets
+        Amazon S3 -> Buckets -> Create Buckets
 
 - S3 Bucket CLI:
 
     Use command line interface to create a new bucket
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    #  Regions outside of us-east-1 require the appropriate LocationConstraint to be specified in order to create the bucket in the desired region
-    $ aws s3api  create-bucket --bucket mybucketname --acl public-read-write --region us-east-2 --create-bucket-configuration LocationConstraint=us-east-2
+        #  Regions outside of us-east-1 require the appropriate LocationConstraint to be specified in order to create the bucket in the desired region
+        $ aws s3api  create-bucket --bucket mybucketname --acl public-read-write --region us-east-2 --create-bucket-configuration LocationConstraint=us-east-2
 
 Push file to Bucket
 -------------------
