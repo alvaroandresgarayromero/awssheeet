@@ -13,10 +13,10 @@ Introduction
 -------------
 AWS Identity and Access Management (IAM) service allows you to authorize users / applications (such as AWS CLI) to access AWS resources.
 
-Create New User
-------------------
+User
+-----
 
-- IAM Console:
+- Create new user (w/ IAM Console):
 
     Navigate into the AWS IAM Console to create new user
 
@@ -34,6 +34,66 @@ Create New User
     Console login link
 
 
+Roles
+------
+IAM roles are a secure way to grant permissions to entities that you trust.
+
+Permission Policy: The first is the account that owns the resource (the trusting account).
+Trusted Policy: The second is the account that contains the users that need to access the resource (the trusted account).
+
+- Permission Policy:
+
+    What resources can be accessed and what actions can be taken
+
+.. code-block:: bash
+
+    # example: access the description of the EKS cluster
+    #          and fetch a list of necessary parameters
+    #          from the AWS Systems Manager service
+    {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+          "Effect": "Allow",
+          "Action": [
+              "eks:Describe*",
+              "ssm:GetParameters"
+          ],
+          "Resource": "*"
+      }
+    ]
+    }
+
+
+- Trusted Policy:
+
+    What entities can assume the role
+
+.. code-block:: bash
+
+    # trust.json
+
+    {
+    "Version": "2012-10-17",
+    "Statement": [
+     {
+         "Effect": "Allow",
+         "Principal": {
+             "AWS": "arn:aws:iam::<ACCOUNT_ID>:root"
+         },
+         "Action": "sts:AssumeRole"
+     }
+    ]
+    }
+
+.. code-block:: bash
+
+    # create the role
+    $ aws iam create-role --role-name UdacityFlaskDeployCBKubectlRole \
+                          --assume-role-policy-document file://trust.json \
+                          --output text --query 'Role.Arn
+
+
 
 AWS CLI Configuration
 -----------------------
@@ -45,7 +105,7 @@ Use command line interface to set the AWS CLI configuration
     $ aws configure --profile default
     # $ aws configure list # to see current config
 
-    # add info fetched from user
+    # info can be found from created user
     AWS Access Key ID: ******
     AWS Secret Access Key: *****
     Default region name: us-east-2

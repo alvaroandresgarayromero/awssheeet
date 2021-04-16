@@ -47,7 +47,7 @@ Delete file from Bucket
 
 .. code-block:: bash
 
-    $ aws s3api delete-object --bucket mybucketname --key sample.txt
+    $ aws s3api delete-object --bucket mybucketname --key sample
 
 Delete Bucket
 ------------------------
