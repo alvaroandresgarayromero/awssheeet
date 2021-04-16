@@ -50,7 +50,7 @@ Use command line interface to set the AWS CLI configuration
     Default region name: us-east-2
     Default output format: json
 
-Active users
+Get active users
 --------------
 
 - CLI:
