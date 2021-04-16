@@ -31,4 +31,5 @@ Create New Bucket
 
 .. code-block:: bash
 
+    #  Regions outside of us-east-1 require the appropriate LocationConstraint to be specified in order to create the bucket in the desired region
     $ aws s3api  create-bucket --bucket mybucketname --acl public-read-write --region us-east-2 --create-bucket-configuration LocationConstraint=us-east-2
