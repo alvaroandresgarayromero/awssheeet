@@ -38,43 +38,43 @@ User
 
     CLI: Use command line interface to see the list users
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        $ aws iam list-users
+    $ aws iam list-users
 
-    output:
+output:
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        {
-            "Users": [
-                {
-                    "Path": "/",
-                    "UserName": "new-user-1",
-                    "UserId": "******************",
-                    "Arn": "arn:aws:iam::<Account>:user/new-user-1",
-                    "CreateDate": "*****************"
-                }
-            ]
-        }
+    {
+        "Users": [
+            {
+                "Path": "/",
+                "UserName": "new-user-1",
+                "UserId": "******************",
+                "Arn": "arn:aws:iam::<Account>:user/new-user-1",
+                "CreateDate": "*****************"
+            }
+        ]
+    }
 
 - Get active user
 
     CLI: Use command line interface to see the list users
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        $ aws sts get-caller-identity
+    $ aws sts get-caller-identity
 
-    output:
+output:
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        {
-            "UserId": "**********************",
-            "Account": "************",
-            "Arn": "arn:aws:iam::<Account>:user/new-user-1"
-        }
+    {
+        "UserId": "**********************",
+        "Account": "************",
+        "Arn": "arn:aws:iam::<Account>:user/new-user-1"
+    }
 
 
 Roles
