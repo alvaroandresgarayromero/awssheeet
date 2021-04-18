@@ -21,7 +21,7 @@ Recommendation
 
 KUBECTL communicates the clusters master system and can be used to interact with nodes, pods, and services
 
-Use `EKS <docs/notes/aws-eks-basics.rst>`_ to create/delete/edit clusters
+Use `EKS <aws-eks-basics.rst>`_ to create/delete/edit clusters
 
 
 Read Cluster

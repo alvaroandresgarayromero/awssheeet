@@ -23,7 +23,7 @@ Recommendation
 
 Use EKSCTL to create/edit/delete EKS clusters
 
-`Kubernetes (kubectl) <docs/notes/kubernetes-basics.rst>`_ communicates the clusters master system and can be used to interact with nodes, pods, and services
+`Kubernetes (kubectl) <kubernetes-basics.rst>`_ communicates the clusters master system and can be used to interact with nodes, pods, and services
 
 Create Cluster
 ------------------
