@@ -14,11 +14,16 @@ Introduction
 AWSsheet was created with intention of collecting AWS code snippets.
 
 
-Cheat Sheet
-=============
+AWS Cheat Sheet
+=================
 
 - `IAM <docs/notes/aws-iam-basics.rst>`_
 - `S3 Bucket <docs/notes/aws-s3-bucket-basics.rst>`_
+- `EKS <docs/notes/aws-eks-basics.rst>`_
 
+
+Third-Party Cheat Sheet
+========================
+- `Kubernetes <docs/notes/kubernetes-basics.rst>`_
 
 

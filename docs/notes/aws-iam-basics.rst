@@ -107,6 +107,14 @@ Trusted Policy: The second is the account that contains the users that need to a
         ]
         }
 
+    .. code-block:: bash
+
+        # add permission policy
+        # Note that role must already be created. See 'Trusted Policy' section.
+        $ aws iam put-role-policy --role-name UdacityFlaskDeployCBKubectlRole
+                                  --policy-name eks-describe
+                                  --policy-document file://iam-role-policy.json
+
 
 - Trusted Policy:
 
