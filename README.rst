@@ -20,7 +20,7 @@ AWS Cheat Sheet
 - `IAM <docs/notes/aws-iam-basics.rst>`_
 - `S3 Bucket <docs/notes/aws-s3-bucket-basics.rst>`_
 - `EKS <docs/notes/aws-eks-basics.rst>`_
-
+- `CloudFormation <docs/notes/aws-cloudformation.rst>`_
 
 Third-Party Cheat Sheet
 ========================
