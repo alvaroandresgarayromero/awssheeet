@@ -66,3 +66,4 @@ Delete Cluster
 
     # use default parameters
     $ eksctl delete cluster --name=<name> [--region=<region>]
+
