@@ -1,6 +1,6 @@
 .. meta::
     :description lang=en: AWS Cloud Formation
-    :keywords: CloudFormation, Cloud Formation, AWS
+    :keywords: CloudFormation, Cloud Formation, AWS, Stack
 
 ===============
 CloudFormation
@@ -12,15 +12,18 @@ CloudFormation
 Introduction
 --------------
 
-CloudFormation is a tool for creating, managing, configuring, and deploying cloud resources. Like any other AWS service, CloudFormation can be used via either the CLI or web-console.
+CloudFormation is a service for managing the creation of Amazon resources. Resources created together are grouped in a stack.
 
+Stack: It is a logical group of related resources on AWS. It is managed as a single entity.
 
-Create CloudFormation template
---------------------------------
+Like any other AWS service, CloudFormation can be used via either the CLI or web-console.
 
-It is a YAML or JSON script that defines the collection of AWS resources that you want to create in just one command.
+Create template
+-----------------
 
-Ex: myFirstTemplate.yml type 'AWS::EC2::VPC' is a virtual network defined by a range of IP addresses allocated to you. These IP addresses are by-default private to you, meaning no one will be able to accesss these IP addresses from the outside-world. You can associate any of these IP addresses to the resources, such as Database, server, load-balancer, cluster etc.
+CloudFormation stacks are defined in template files, (.yml). These files define all of the resources for your stack (the collection of AWS resources that you want to create in just one command.)
+
+Ex: myFirstTemplate.yml type 'AWS::EC2::VPC' is a virtual network defined by a range of IP addresses allocated to you. These IP addresses are by-default private to you, meaning no one will be able to access these IP addresses from the outside-world. You can associate any of these IP addresses to the resources, such as Database, server, load-balancer, cluster etc.
 
     .. code-block:: yaml
 

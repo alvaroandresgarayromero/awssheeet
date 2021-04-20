@@ -25,5 +25,5 @@ AWS Cheat Sheet
 Third-Party Cheat Sheet
 ========================
 - `Kubernetes <docs/notes/kubernetes-basics.rst>`_
-
+- `Docker <docs/notes/docker-basics.rst>`_
 
