@@ -100,4 +100,6 @@ Python
 
 - Stop Specific Docker Container
 
+.. code-block:: bash
+
     $ sudo docker stop 9b8b83f994ee
