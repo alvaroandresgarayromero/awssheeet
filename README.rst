@@ -13,7 +13,6 @@ Introduction
 
 AWSsheet was created with intention of collecting AWS code snippets.
 
-
 AWS Cheat Sheet
 =================
 
