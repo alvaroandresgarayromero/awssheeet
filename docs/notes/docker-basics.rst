@@ -74,6 +74,18 @@ Python
     # -t test creates a repository tagged as "test"
     $ sudo docker build -t test .
 
+- Check the list of images
+
+.. code-block:: bash
+
+    $ sudo docker image ls
+
+- Remove any image
+
+.. code-block:: bash
+
+    $sudo docker image rm <image_id>
+
 - Create and run container
 
 .. code-block:: bash
