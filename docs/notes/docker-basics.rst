@@ -40,7 +40,7 @@ Remove any image
 
 .. code-block:: bash
 
-    $sudo docker image rm <image_id>
+    $ sudo docker image rm <image_id>
 
 Check the list of images
 -------------------------
@@ -139,6 +139,16 @@ Python
 
     # -p mapping port 80 of your local machine to the port 8080 of the container running the flask application.
     $ sudo docker run -p 80:8080 test
+
+.. code-block:: bash
+
+    # add name to container
+    $ sudo docker run --name myContainer -p 80:8080 test
+
+.. code-block:: bash
+
+    # add environment files, if any
+    $ sudo docker run --name myContainer --env-file=.env_file -p 80:8080 test
 
 - output:
 
