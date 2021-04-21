@@ -20,6 +20,70 @@ Docker allows us to run multiple isolated processes in parallel. A container is 
 
 Each container is an independent component that can run on its own and be moved from environment to environment.
 
+Build image
+-----------
+
+.. code-block:: bash
+
+    $ sudo docker build -t myimage .
+
+
+Check the list of images
+-------------------------
+
+.. code-block:: bash
+
+    $ sudo docker image ls
+
+Remove any image
+-----------------
+
+.. code-block:: bash
+
+    $sudo docker image rm <image_id>
+
+Check the list of images
+-------------------------
+
+.. code-block:: bash
+
+    $ sudo docker image ls
+
+Remove any image
+-----------------
+
+.. code-block:: bash
+
+    $ sudo docker image rm <image_id>
+
+Run Container
+--------------
+
+    $ docker run --name myContainer myimage
+
+
+List running containers
+-------------------------
+
+.. code-block:: bash
+
+    $ docker container ls
+    $ docker ps
+
+Stop a container
+-----------------
+
+.. code-block:: bash
+
+    $ sudo docker container stop <container_id>
+
+Remove a container
+-------------------
+
+.. code-block:: bash
+
+    $ sudo docker container rm <container_id>
+
 Python
 --------
 
@@ -73,18 +137,6 @@ Python
     # cd to DockerExample1
     # -t test creates a repository tagged as "test"
     $ sudo docker build -t test .
-
-- Check the list of images
-
-.. code-block:: bash
-
-    $ sudo docker image ls
-
-- Remove any image
-
-.. code-block:: bash
-
-    $sudo docker image rm <image_id>
 
 - Create and run container
 
