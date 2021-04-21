@@ -49,15 +49,10 @@ Check the list of images
 
     $ sudo docker image ls
 
-Remove any image
------------------
-
-.. code-block:: bash
-
-    $ sudo docker image rm <image_id>
-
 Run Container
 --------------
+
+.. code-block:: bash
 
     $ docker run --name myContainer myimage
 
