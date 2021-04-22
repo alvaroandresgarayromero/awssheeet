@@ -20,64 +20,80 @@ Docker allows us to run multiple isolated processes in parallel. A container is 
 
 Each container is an independent component that can run on its own and be moved from environment to environment.
 
-Build image
+Image
+------
+
+- Build
+
+    .. code-block:: bash
+
+        $ sudo docker build -t myimage .
+
+
+- Check the list of images
+
+    .. code-block:: bash
+
+        $ sudo docker image ls
+
+- Remove specific image
+
+    .. code-block:: bash
+
+        $ sudo docker image rm <image_id>
+
+- Remove all images
+
+    .. code-block:: bash
+
+        $ sudo docker image prune
+
+- Check the list of images
+
+    .. code-block:: bash
+
+        $ sudo docker image ls
+
+Container
 -----------
 
-.. code-block:: bash
+- Run Container
 
-    $ sudo docker build -t myimage .
+    .. code-block:: bash
 
+        $ docker run --name myContainer myimage
 
-Check the list of images
--------------------------
+- List running containers
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    $ sudo docker image ls
+        $ docker container ls
+        $ docker ps
 
-Remove any image
------------------
+- Get all running and stopped container
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    $ sudo docker image rm <image_id>
+        $ docker ps -a
 
-Check the list of images
--------------------------
+- Stop a container
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    $ sudo docker image ls
+        $ sudo docker container stop <container_id>
 
-Run Container
---------------
+- Remove a specific container
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    $ docker run --name myContainer myimage
+        $ sudo docker container rm <container_id>
 
+- Remove all containers
 
-List running containers
--------------------------
+    .. code-block:: bash
 
-.. code-block:: bash
+        $ sudo docker container prune
 
-    $ docker container ls
-    $ docker ps
-
-Stop a container
------------------
-
-.. code-block:: bash
-
-    $ sudo docker container stop <container_id>
-
-Remove a container
--------------------
-
-.. code-block:: bash
-
-    $ sudo docker container rm <container_id>
 
 Python
 --------
