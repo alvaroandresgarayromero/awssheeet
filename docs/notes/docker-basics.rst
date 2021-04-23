@@ -1,6 +1,6 @@
 .. meta::
     :description lang=en: Docker
-    :keywords: Python, Python3, Docker, Containers, Flask
+    :keywords: Python, Python3, Docker, Containers, Flask, Docker-Compose
 
 ====================
 Docker Containers
@@ -19,6 +19,137 @@ Docker allows us to run multiple isolated processes in parallel. A container is 
 - the necessary runtime environment to run the application.
 
 Each container is an independent component that can run on its own and be moved from environment to environment.
+
+Basic Docker Workflow
+--------------------------
+
+- Create an empty directory (docker will read all files unless explicitly ignored)
+
+- Create DockerFile: Contains instructions to create Docker Image
+
+    .. code-block:: bash
+
+        #Dockefile does not have any file extension
+
+        FROM python:3.7.2-slim
+
+        COPY . /app
+        WORKDIR /app
+
+        RUN pip install --upgrade pip
+        RUN pip install flask
+
+        ENTRYPOINT ["python", "app.py"]
+
+- Create simple flask-python app.py file
+
+    .. code-block:: python
+
+        from flask import Flask, jsonify
+
+        app = Flask(__name__)
+
+
+        @app.route('/')
+        def index():
+            return jsonify({'success': True})
+
+
+        if __name__ == '__main__':
+            app.run(host='0.0.0.0', port=8080, debug=True)
+
+
+- Directory should appear like
+
+    .. code-block:: bash
+
+        ~/DockerExample1$ ls
+        app.py  Dockerfile
+
+- Build Docker image
+
+- Create and run container
+
+- Verify app is running:
+
+    .. code-block:: bash
+
+       $ curl http://0.0.0.0:80
+        {
+          "success": true
+        }
+
+Basic Docker-Compose Workflow
+--------------------------------
+
+Compose is a tool for defining and running multi-container Docker applications
+
+- Create an empty directory (docker will read all files unless explicitly ignored)
+
+- Create DockerFile: Contains instructions to create Docker Image
+
+    .. code-block:: bash
+
+        #Dockefile does not have any file extension
+
+        FROM python:3.7-stretch
+
+        WORKDIR /app
+
+        COPY . /app
+
+        RUN pip install --upgrade pip
+        RUN pip install PyJWT==1.7.1
+        RUN pip install flask==1.1.2
+        RUN pip install gunicorn==20.0.4
+        RUN pip install pytest==6.2.2
+
+        ENTRYPOINT ["gunicorn", "-b", ":8080", "main:APP"]
+
+- Create Docker-Compose.yml: Contains instructions to build image and container
+
+    Note: Volumes key mounts the project directory (current directory) on the host to /app inside the container, allowing you to modify the code on the fly, without having to rebuild the image.
+
+    .. code-block:: yaml
+
+        version: "3"
+        services:
+          web:
+            build: .
+            image: myimage
+            container_name: myContainer
+            ports:
+              - "80:8080"
+            volumes:
+              - .:/app
+
+- Create simple flask-python app.py file
+
+    .. code-block:: python
+
+        from flask import Flask, jsonify
+
+        APP = Flask(__name__)
+
+
+        @APP.route('/', methods=['POST', 'GET'])
+        def health():
+            return jsonify("Healthy")
+
+
+        if __name__ == '__main__':
+            APP.run(host='127.0.0.1', port=8080, debug=True)
+
+
+
+- Build Docker image, create/run container
+
+- Verify app is running:
+
+    .. code-block:: bash
+
+       $ curl http://0.0.0.0:80/
+         "Healthy"
 
 Image
 ------
@@ -63,6 +194,21 @@ Container
 
         $ docker run --name myContainer myimage
 
+    .. code-block:: bash
+
+        # -p mapping port 80 of your local machine to the port 8080 of the container when running web application.
+        $ sudo docker run -p 80:8080 myimage
+
+    .. code-block:: bash
+
+        # add name to container
+        $ sudo docker run --name myContainer -p 80:8080 test
+
+    .. code-block:: bash
+
+        # add environment files, if any
+        $ sudo docker run --name myContainer --env-file=.env_file -p 80:8080 test
+
 - List running containers
 
     .. code-block:: bash
@@ -94,97 +240,58 @@ Container
 
         $ sudo docker container prune
 
+- Enter Container Environment:
 
-Python
---------
+    .. code-block:: bash
 
-- Create an empty directory (docker will read all files unless explicitly ignored)
+        $ sudo docker exec -it <container_id> /bin/bash
 
-- Create DockerFile: contains instructions to create Docker Image
+Docker-Compose
+---------------
 
-.. code-block:: bash
+- Build Image
 
-    #Dockefile does not have any file extension
+    New or overwrite existing image
 
-    FROM python:3.7.2-slim
+    .. code-block:: bash
 
-    COPY . /app
-    WORKDIR /app
+        $ sudo docker-compose build
 
-    RUN pip install --upgrade pip
-    RUN pip install flask
+- Run Container
 
-    ENTRYPOINT ["python", "app.py"]
+    Build current (or new image if none), and run container
 
-- Create simple flask-python app.py file
+    .. code-block:: bash
 
-.. code-block:: python
+        $ sudo docker-compose up
 
-    from flask import Flask, jsonify
+Enable TCP port 2375 (Linux)
+--------------------------------
 
-    app = Flask(__name__)
+Enabling TCP port 2375 for external connection to Docker can allow third-party (IDEs like PyCharm) plugin tools interface with Docker
 
+- Create daemon.json file in /etc/docker:
 
-    @app.route('/')
-    def index():
-        return jsonify({'success': True})
+    .. code-block:: bash
 
+        {"hosts": ["tcp://0.0.0.0:2375", "unix:///var/run/docker.sock"]}
 
-    if __name__ == '__main__':
-        app.run(host='0.0.0.0', port=8080, debug=True)
+- Add /etc/systemd/system/docker.service.d/override.conf
 
+    .. code-block:: bash
 
-- Directory should appear like
+         [Service]
+         ExecStart=
+         ExecStart=/usr/bin/dockerd
 
-.. code-block:: bash
+- Reload the systemd daemon:
 
-    ~/DockerExample1$ ls
-    app.py  Dockerfile
+    .. code-block:: bash
 
-- Build Docker image
+        systemctl daemon-reload
 
-.. code-block:: bash
+- Restart docker:
 
-    # cd to DockerExample1
-    # -t test creates a repository tagged as "test"
-    $ sudo docker build -t test .
+    .. code-block:: bash
 
-- Create and run container
-
-.. code-block:: bash
-
-    # -p mapping port 80 of your local machine to the port 8080 of the container running the flask application.
-    $ sudo docker run -p 80:8080 test
-
-.. code-block:: bash
-
-    # add name to container
-    $ sudo docker run --name myContainer -p 80:8080 test
-
-.. code-block:: bash
-
-    # add environment files, if any
-    $ sudo docker run --name myContainer --env-file=.env_file -p 80:8080 test
-
-- output:
-
-.. code-block:: bash
-
-   $ curl http://0.0.0.0:80
-    {
-      "success": true
-    }
-
-- Check active running Docker Containers
-
-.. code-block:: bash
-
-    $ sudo docker ps
-    CONTAINER ID   IMAGE     COMMAND           CREATED          STATUS          PORTS                  NAMES
-    9b8b83f994ee   test      "python app.py"   25 minutes ago   Up 25 minutes   0.0.0.0:80->8080/tcp   kind_mendel
-
-- Stop Specific Docker Container
-
-.. code-block:: bash
-
-    $ sudo docker stop 9b8b83f994ee
+        systemctl restart docker.service
