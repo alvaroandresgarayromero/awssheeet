@@ -82,6 +82,7 @@ Roles
 IAM roles are a secure way to grant permissions to entities that you trust.
 
 Permission Policy: The first is the account that owns the resource (the trusting account).
+
 Trusted Policy: The second is the account that contains the users that need to access the resource (the trusted account).
 
 - Permission Policy:
