@@ -118,6 +118,8 @@ Compose is a tool for defining and running multi-container Docker applications
             build: .
             image: myimage
             container_name: myContainer
+            env_file:
+              - .env_file
             ports:
               - "80:8080"
             volumes:
@@ -240,7 +242,7 @@ Container
 
         $ sudo docker container prune
 
-- Enter Container Environment:
+- Enter Container:
 
     .. code-block:: bash
 
