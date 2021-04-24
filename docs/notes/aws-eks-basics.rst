@@ -28,7 +28,7 @@ Use EKSCTL to create/edit/delete EKS clusters
 Create Cluster
 ------------------
 
-Go to the CloudFormation console to view the progress.
+Go to your AWS console -> CloudFormation console to view the progress.
 
 .. code-block:: bash
 
