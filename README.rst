@@ -13,6 +13,7 @@ Introduction
 
 AWSsheet was created with intention of collecting AWS code snippets.
 
+
 AWS Cheat Sheet
 =================
 
@@ -20,6 +21,14 @@ AWS Cheat Sheet
 - `S3 Bucket <docs/notes/aws-s3-bucket-basics.rst>`_
 - `EKS <docs/notes/aws-eks-basics.rst>`_
 - `CloudFormation <docs/notes/aws-cloudformation.rst>`_
+
+AWS Design Foundations
+========================
+
+These are concepts taught throughout the AWS Cloud Architect Nanodegree Program from Udacity.
+
+- `Design for Availability, Reliability, and Resiliency <docs/notes/aws-arr.rst>`_
+
 
 Third-Party Cheat Sheet
 ========================
