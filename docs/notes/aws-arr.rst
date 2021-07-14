@@ -156,10 +156,30 @@ in order to have common, measurable, and achievable goals
 Monitor, React, and Recover
 ----------------------------
 
-- Monitoring
-- Alerting
-- Recovering
+- Monitoring: CloudWatch Metrics tracks metrics on AWS services
+
+    AWS provides robust monitoring capabilities for their services.
+
+    - CloudWatch Metrics: Is the main repository of monitoring metrics within AWS
+    - CloudWatch Logs: A service for storing text based logs
+    - CloudWatch Synthetics: Health checks for HTTP endpoints
+
+    .. image:: images/cloudwatch_flow_diagram.png
+       :width: 400
+
+    - CloudsWatch Dashboard and Alarms are the post-processing services for visualizing and alerting
+
+
+- Alerting: CloudWatch Alarms can be used as the bases for an alarm.
+    - CloudWatch Alarms integrates to other AWS services to set thresholds for alerting
+    - Alerts can be configured to transmit via email/text messaging
+
+- Recovering: Understanding failure
+    - Check Monitoring tools
+    - CloudTrail is also a great tool for determining what changed.
 - Automating
+    - to recover faster
+    - AutoScaling: DynamoDb, RDS disk space scaling, EC2 AutoScaling Groups, Lambda
 
 
 Appendix Notes
@@ -187,3 +207,6 @@ Glossary
     - Durability: A measurement that the data won't be lost
     - Force Majeure: Term describing an event or circumstance that is completely unavoidable.
     - IP whitelisting: Allowing specific IP addresses only to access some resource.
+    - SLAs: Service Level Agreements
+    - SSL certificate: Cryptographic certificate for encrypting traffic between two computers.
+    - Chaos Engineering: Intentionally causing issues in order to validate that a system can respond appropriately to problems.
