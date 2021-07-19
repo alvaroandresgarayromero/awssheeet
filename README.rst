@@ -28,6 +28,10 @@ AWS Design Foundations
 These are concepts taught throughout the AWS Cloud Architect Nanodegree Program from Udacity.
 
 - `Design for Availability, Reliability, and Resiliency <docs/notes/aws-arr.rst>`_
+- `Design for Performance and Scalability <docs/notes/aws-dps.rst>`_
+- `Infrastructure as Code <docs/notes/iac.rst>`_
+- `Serverless Computing <docs/notes/aws-serverless.rst>`_
+
 
 
 Third-Party Cheat Sheet
