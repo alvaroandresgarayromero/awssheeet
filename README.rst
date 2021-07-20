@@ -29,6 +29,7 @@ These are concepts taught throughout the AWS Cloud Architect Nanodegree Program 
 
 - `Design for Availability, Reliability, and Resiliency <docs/notes/aws-arr.rst>`_
 - `Design for Performance and Scalability <docs/notes/aws-dps.rst>`_
+- `Design for Security <docs/notes/aws-dfs.rst>`_
 
 
 Third-Party Cheat Sheet

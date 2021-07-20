@@ -103,8 +103,38 @@ optimize network routes, and failover to backup.
 Serverless Technology
 ----------------------
 
+Serverless computing allows application to be ran as a series of functions (lightweight applications as opposed to deployable software packages).
 
+- Cloud Migration
+    - Lift and Shift: The process of moving an application into the cloud without making any significant changes to the code. Therefore, no room for optimization improvements
+    - Cloud Native: The process of refactoring an application to utilize cloud services like EC2 instances, load balances, and targeted database solutions. Ideal for lightweight and even-driver applications. These can be applications that are idle most of the time, and could benefit to be serverless.
 
+- AWS Lambda
+    AWS lambda is AWS serverless computing service
+    - Costs is calculated every 100 ms of compute time, and the number of times the event source triggers
+    - Trigger Events
+        - API Gateway: Custom REST API such as GET, UPDATE to trigger lambda
+        - SQS Queue: Process message queue service to trigger lambda
+        - DynamoDB: Modifications to Table can be used to trigger lambda
+
+- AWS Lambda Cost Factors
+    - Processing time
+    - Memory allocated
+    - Number of event triggers
+
+- API Gateway
+
+    AWS API Gateway is a service that removes the administrative work of
+    publishing, maintaining, managing, and securing APIs. It integrates with
+    AWS Cognito to support authentication and authorization. It also works
+    with lambda.
+
+- Containers
+
+    A container includes an application, its configuration, runtime, libraries,
+    tools, and its dependencies. Orchestration tools allow multiple container to be managed.
+
+    - AWS Elastic Container Service/Elastic Kubernetes Services can be used to maintain, scale, and run multiple containers.
 
 Infrastructure as Code
 ------------------------
